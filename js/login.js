@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const passwordInput = document.getElementById('password');
     const loginBtn = document.getElementById('login-btn');
     
-    // Sign Up form fields (placeholders for validation)
+    // Sign Up form fields
     const newUsernameInput = document.getElementById('new-username');
     const newEmailInput = document.getElementById('new-email');
     const newPasswordInput = document.getElementById('new-password');
@@ -27,15 +27,71 @@ document.addEventListener('DOMContentLoaded', () => {
     const verificationTitle = document.getElementById('verification-title');
     const verificationMessage = document.getElementById('verification-message');
     
-    let originalLoginBtnText = loginBtn.innerHTML;
-    let originalSignupBtnText = signupBtn.innerHTML;
+    // --- AUTHENTICATION DATA MANAGEMENT (Simulating Backend with Local Storage) ---
+    // Mock data for initial CSV load if localStorage is empty.
+    const MOCK_CSV_DATA = [
+        { codename: 'neo_one', email: 'neo@pixelphantoms.com', password_hash: 'matrix_secure_hash' },
+        { codename: 'test_agent', email: 'test@pixelphantoms.com', password_hash: 'password123_secure_hash' }
+    ];
 
-    // --- UTILITY FUNCTIONS ---
+    /**
+     * Initializes or retrieves user accounts from Local Storage.
+     * New registrations are stored/checked here, simulating a dynamic database.
+     * WARNING: This is INSECURE and for frontend simulation only.
+     */
+    function getAccounts() {
+        let accounts = JSON.parse(localStorage.getItem('user_accounts'));
+        if (!accounts || accounts.length === 0) {
+            // Initialize with mock CSV data if storage is empty
+            accounts = MOCK_CSV_DATA;
+            localStorage.setItem('user_accounts', JSON.stringify(accounts));
+        }
+        return accounts;
+    }
+
+    function addAccount(codename, email, password) {
+        let accounts = getAccounts();
+        
+        // Simple hash simulation (password + fixed string)
+        const password_hash = password.trim() + '_secure_hash'; 
+        
+        const newAccount = {
+            codename: codename.toLowerCase().trim(),
+            email: email.toLowerCase().trim(),
+            password_hash: password_hash
+        };
+        
+        accounts.push(newAccount);
+        localStorage.setItem('user_accounts', JSON.stringify(accounts));
+    }
+
+    function checkLogin(codename, password) {
+        const accounts = getAccounts();
+        // Recalculate the expected hash from the input password
+        const expected_hash = password.trim() + '_secure_hash';
+        
+        // Check if a matching account exists
+        return accounts.find(account => 
+            account.codename === codename.toLowerCase().trim() && 
+            account.password_hash === expected_hash
+        );
+    }
+    
+    function checkCodenameOrEmailExists(codename, email) {
+        const accounts = getAccounts();
+        const lowerCodename = codename.toLowerCase().trim();
+        const lowerEmail = email.toLowerCase().trim();
+        
+        return accounts.some(account => 
+            account.codename === lowerCodename || account.email === lowerEmail
+        );
+    }
+
+    // --- UTILITY FUNCTIONS (Unchanged) ---
     function showError(id, message) {
         const errorElement = document.getElementById(id);
         errorElement.textContent = message;
         errorElement.classList.add('show');
-        // Add shake animation to the input card on validation error
         accessCard.classList.add('fail-icon');
         setTimeout(() => accessCard.classList.remove('fail-icon'), 500);
     }
@@ -55,8 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
     }
 
-    // --- STATE MANAGEMENT ---
-    
+    // --- STATE MANAGEMENT (Unchanged) ---
     function setActiveView(viewId) {
         const views = [loginView, signupView, verificationView];
         views.forEach(view => {
@@ -66,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 view.classList.remove('active');
             }
         });
-        feedbackMsg.classList.remove('show', 'success', 'error'); // Clear general feedback on view switch
+        feedbackMsg.classList.remove('show', 'success', 'error');
     }
 
     function setAuthMode(mode) {
@@ -81,13 +136,15 @@ document.addEventListener('DOMContentLoaded', () => {
             signupTabBtn.classList.add('active');
             setActiveView('signup-view');
             statusValue.textContent = 'STATUS_REGISTRATION';
+        } else if (mode === 'verification') {
+            setActiveView('verification-view');
         }
     }
 
-    // --- SCREENING/SIMULATION LOGIC ---
+    // --- SCREENING/SIMULATION LOGIC (UPDATED FOR DATABASE CHECK) ---
 
     function startVerificationSimulation(isLogin) {
-        setAuthMode('verification'); // Activate the verification view
+        setAuthMode('verification'); 
         statusValue.textContent = isLogin ? 'AUTH_SCREENING_INIT' : 'AGENT_CREATION_INIT';
         
         verificationIcon.className = 'fas fa-fingerprint fa-spin';
@@ -95,11 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
         verificationTitle.textContent = isLogin ? 'INITIATING ACCESS PROTOCOL...' : 'SECURE AGENT HASHING...';
         verificationMessage.textContent = 'Analyzing credentials against known hashes and security kernels.';
         
-        const isSuccess = isLogin 
-            ? (usernameInput.value.toLowerCase().trim() === 'neo_one' && passwordInput.value.trim() === 'matrix')
-            : (newUsernameInput.value.trim() !== '' && newEmailInput.value.trim().includes('@') && newPasswordInput.value.length > 5);
-
-        // Simulated steps for dramatic effect
         const sequenceSteps = isLogin ? [
             'VERIFYING CODENAME...',
             'DECRYPTING PASSKEY HASH...',
@@ -120,17 +172,37 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 clearInterval(interval);
             }
-        }, 800 + Math.random() * 400); // Randomize step timing
+        }, 800 + Math.random() * 400);
 
         // Final result delay
         setTimeout(() => {
             clearInterval(interval);
+            
+            let isSuccess = false;
+            let failureReason = '';
+            
+            if (isLogin) {
+                const account = checkLogin(usernameInput.value, passwordInput.value);
+                isSuccess = !!account;
+            } else { // Sign Up Logic
+                const codename = newUsernameInput.value;
+                const email = newEmailInput.value;
+                const password = newPasswordInput.value;
+                
+                if (checkCodenameOrEmailExists(codename, email)) {
+                    failureReason = 'Codename or Email already exists in records.';
+                } else {
+                    addAccount(codename, email, password);
+                    isSuccess = true;
+                }
+            }
+
             if (isSuccess) {
                 handleSuccess(isLogin);
             } else {
-                handleFailure(isLogin);
+                handleFailure(isLogin, failureReason);
             }
-        }, 4000 + Math.random() * 1000); // Total randomized delay
+        }, 4000 + Math.random() * 1000); 
     }
 
     function handleSuccess(isLogin) {
@@ -139,15 +211,18 @@ document.addEventListener('DOMContentLoaded', () => {
         verificationMessage.textContent = isLogin ? 'Welcome back, Agent. Redirecting to Command Center...' : 'Agent ID successfully created. You can now log in.';
         statusValue.textContent = 'STATUS_ONLINE';
 
-        // Redirect after Login
         if (isLogin) {
             setTimeout(() => {
+                localStorage.setItem('session_codename', usernameInput.value);
                 window.location.href = '../pages/leaderboard.html'; 
             }, 1000);
         }
         
-        // Show success message and transition back to login for sign up
         if (!isLogin) {
+            newUsernameInput.value = '';
+            newEmailInput.value = '';
+            newPasswordInput.value = '';
+
             setTimeout(() => {
                 setAuthMode('login');
                 feedbackMsg.innerHTML = '✅ Registration successful! Please log in.';
@@ -156,26 +231,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function handleFailure(isLogin) {
+    function handleFailure(isLogin, customReason = '') {
         const errorMessages = isLogin ? [
             'AUTH_FAIL: Invalid Codename or Passkey.',
             'UNAUTHORIZED ACCESS: Security violation detected.',
             'HASH_MISMATCH: Protocol rejected credentials.'
         ] : [
-            'REGISTRATION FAILED: Codename already in use.',
-            'PROTOCOL ERROR: Could not secure password hash.',
-            'SERVER DENIED: Email key invalid.'
+            'REGISTRATION FAILED: Could not secure password hash.',
+            'SERVER DENIED: Email key invalid.',
+            'CONNECTION DROPPED: Registration protocol failure.'
         ];
         
         verificationIcon.className = 'fas fa-times-circle fail-icon';
         verificationTitle.textContent = isLogin ? 'AUTHENTICATION FAILED' : 'REGISTRATION FAILED';
-        verificationMessage.textContent = errorMessages[Math.floor(Math.random() * errorMessages.length)] + ' Please try again.';
+        
+        let message = customReason || errorMessages[Math.floor(Math.random() * errorMessages.length)];
+        verificationMessage.textContent = message + ' Please try again.';
         statusValue.textContent = 'STATUS_DENIED';
         
-        // Keep verification view visible on failure, allowing restart/return
+        if (isLogin) {
+            usernameInput.value = '';
+            passwordInput.value = '';
+        }
     }
 
-    // --- EVENT HANDLERS ---
+    // --- EVENT HANDLERS (Unchanged) ---
     
     loginTabBtn.addEventListener('click', () => setAuthMode('login'));
     signupTabBtn.addEventListener('click', () => setAuthMode('signup'));
@@ -184,26 +264,27 @@ document.addEventListener('DOMContentLoaded', () => {
     authForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Check which form is active
+        let formValid = true;
+
         if (loginView.classList.contains('active')) {
-            const isUsernameValid = validateField(usernameInput, 'username-error', 'Codename is required');
-            const isPasswordValid = validateField(passwordInput, 'password-error', 'Passkey is required');
-
-            if (isUsernameValid && isPasswordValid) {
-                startVerificationSimulation(true);
-            }
+            formValid &= validateField(usernameInput, 'username-error', 'Codename is required');
+            formValid &= validateField(passwordInput, 'password-error', 'Passkey is required');
         } else if (signupView.classList.contains('active')) {
-            const isUsernameValid = validateField(newUsernameInput, 'new-username-error', 'Codename is required');
-            const isEmailValid = validateField(newEmailInput, 'new-email-error', 'Email Key is required');
-            const isPasswordValid = validateField(newPasswordInput, 'new-password-error', 'Passkey is required');
+            formValid &= validateField(newUsernameInput, 'new-username-error', 'Codename is required');
+            formValid &= validateField(newEmailInput, 'new-email-error', 'Email Key is required');
+            formValid &= validateField(newPasswordInput, 'new-password-error', 'Passkey is required');
+        }
 
-            if (isUsernameValid && isEmailValid && isPasswordValid) {
-                startVerificationSimulation(false);
-            }
+        if (formValid) {
+            startVerificationSimulation(loginView.classList.contains('active'));
+        } else {
+            feedbackMsg.textContent = '❌ Input validation failed. Check required fields.';
+            feedbackMsg.className = 'feedback-message error show';
+            setTimeout(() => feedbackMsg.classList.remove('show'), 4000);
         }
     });
 
-    // --- INITIALIZATION ---
+    // --- INITIALIZATION (Unchanged) ---
     function initMatrixRain() {
         const canvas = document.getElementById('cyber-rain-canvas');
         if (!canvas) return; 
@@ -246,13 +327,12 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(draw, animationSpeed);
     }
     
-    // Hacker stats initialization (implementation is in the previous step's JS, assumed here)
     function initHackerStats() {
         const STATS = [
             { label: "CPU_LOAD", unit: "%", min: 15, max: 80, isWarn: v => v > 90 },
             { label: "MEM_USAGE", unit: "GB", min: 2, max: 12, decimal: 1, isWarn: v => v > 10 },
-            { label: "PING_LAT", unit: "ms", min: 5, max: 99, isWarn: v => v > 50 },
-            { label: "CORE_TEMP", unit: "°C", min: 35, max: 65, isWarn: v => v > 60 }
+            { label: "PING_LAT", unit: "ms", min: 5, max: 99, decimal: 0, isWarn: v => v > 50 },
+            { label: "CORE_TEMP", unit: "°C", min: 35, max: 65, decimal: 0, isWarn: v => v > 60 }
         ];
         let currentStats = STATS.map(s => ({ 
             ...s, 
@@ -270,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let newValue = stat.value + delta;
                 newValue = Math.max(stat.min, Math.min(stat.max, newValue));
 
-                let displayValue = stat.decimal ? newValue.toFixed(stat.decimal) : Math.round(newValue);
+                let displayValue = stat.decimal !== undefined ? newValue.toFixed(stat.decimal) : Math.round(newValue);
                 let statusClass = stat.isWarn(newValue) ? 'hacker-status-warn' : 'hacker-status-ok';
                 
                 html += `<div class="hacker-stat-line"><span>${stat.label}</span><span class="${statusClass}">${displayValue}${stat.unit}</span></div>`;
@@ -283,7 +363,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateHackerStats();
     }
     
-    // Typewriter effect initialization (implementation is in the previous step's JS, assumed here)
     function selectAndAnimateMessage() {
         const dynamicMsgElement = document.getElementById('dynamic-login-message');
         const welcomeMessages = [
@@ -312,5 +391,6 @@ document.addEventListener('DOMContentLoaded', () => {
     selectAndAnimateMessage();
     initMatrixRain();
     initHackerStats(); 
-    setAuthMode('login'); // Start in login mode
+    setAuthMode('login'); 
+    getAccounts(); // Initialize Local Storage
 });
