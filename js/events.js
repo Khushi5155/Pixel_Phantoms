@@ -261,7 +261,15 @@ function renderStandardTimer(event) {
 function initOrganizeForm() {
     const form = document.getElementById('organize-form');
     const feedback = document.getElementById('organize-feedback');
-    
+    const dateInput = document.getElementById('event-date');
+
+    if (dateInput) {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  dateInput.min = `${year}-${month}-${day}`;
+}
     if(form) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();

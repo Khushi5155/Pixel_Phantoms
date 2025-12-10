@@ -15,30 +15,25 @@
   --nav-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   
   /* Footer Light Theme Variables */
-  --footer-bg: #f8f9fa;
-  --footer-bg-secondary: #ffffff;
-  --footer-text: #333333;
-  --footer-text-secondary: #666666;
-  --footer-heading: #000000;
-  --footer-link: #00aaff;
-  --footer-link-hover: #0088cc;
-  --footer-border: rgba(0, 0, 0, 0.1);
-  --social-bg: #e9ecef;
-  --social-bg-hover: #dee2e6;
-  --social-icon: #495057;
-  --social-icon-hover: #000000;
-  --social-border: rgba(0, 0, 0, 0.1);
-  --input-bg: #ffffff;
-  --input-border: rgba(0, 0, 0, 0.1);
-  --input-text: #333333;
-  --input-placeholder: #6c757d;
-  --accent-primary: #00aaff;
-  --accent-secondary: #0088cc;
-  
-  /* Animation durations for cross-browser consistency */
-  --animation-fast: 200ms;
-  --animation-medium: 300ms;
-  --animation-slow: 400ms;
+  --footer-bg: #1a1a2e;
+  --footer-bg-secondary: #16213e;
+  --footer-text: #e6e6e6;
+  --footer-text-secondary: #a0aec0;
+  --footer-heading: #ffffff;
+  --footer-link: #cbd5e0;
+  --footer-link-hover: #ffffff;
+  --footer-border: #2d3748;
+  --social-bg: #2d3748;
+  --social-bg-hover: #4a5568;
+  --social-icon: #cbd5e0;
+  --social-icon-hover: #ffffff;
+  --social-border: #4a5568;
+  --footer-input-bg: #2d3748;
+  --input-border: #4a5568;
+  --input-text: #e2e8f0;
+  --input-placeholder: #718096;
+  --accent-primary: #667eea;
+  --accent-secondary: #764ba2;
 }
 
 [data-theme="dark"] {
@@ -70,7 +65,7 @@
   --social-icon: #cbd5e0;
   --social-icon-hover: #ffffff;
   --social-border: #4a5568;
-  --input-bg: #2d3748;
+  --footer-input-bg: #2d3748;
   --input-border: #4a5568;
   --input-text: #e2e8f0;
   --input-placeholder: #718096;
@@ -392,9 +387,8 @@ body.mobile-menu-open {
     }
 }
 
-/* ========================================= */
-/* THEME TOGGLE - ENHANCED FOR SAFARI/iOS   */
-/* ========================================= */
+/* THEME TOGGLE - ENHANCED */
+
 .theme-toggle {
     display: flex;
     align-items: center;
@@ -1239,12 +1233,11 @@ body.mobile-menu-open {
 /* Footer Content Layout */
 .footer-content {
     display: grid;
-    grid-template-columns: 2fr 2fr 1.5fr;
+    grid-template-columns: 1.5fr 2fr 1.5fr;
     gap: 3rem;
     margin-bottom: 2rem;
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+    max-width: 1200px;
+    margin: 0 auto 2rem;
     padding: 0 2rem;
     animation: slideUpFade 0.8s ease-out;
     box-sizing: border-box;
@@ -1266,6 +1259,7 @@ body.mobile-menu-open {
 }
 
 .footer-logo img {
+    margin-top: 15px;
     width: 45px;
     height: 45px;
     border-radius: 10px;
@@ -1736,7 +1730,7 @@ body.mobile-menu-open {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-8px);
+        transform: translateY(-4px);
     }
 }
 

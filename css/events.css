@@ -315,3 +315,13 @@
     .organize-image { display: none; }
     .form-row { grid-template-columns: 1fr; }
 }
+.form-group input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 1;
+    display: block;
+    cursor: pointer;
+    filter: invert(1);
+}
+
+.form-group input[type="date"] {
+    cursor: pointer;
+}
