@@ -5001,8 +5001,9 @@ body.mobile-menu-open {
       color: var(--footer-heading);
       position: relative;
       padding-bottom: 0.5rem;
-  }
-  
+      display: inline-block;
+}
+ 
   .link-group-title::after {
       content: '';
       position: absolute;
@@ -5011,13 +5012,22 @@ body.mobile-menu-open {
       width: 30px;
       height: 2px;
       background: var(--accent-primary);
-      transition: width var(--animation-medium) ease;
-  }
-  
-  .link-group:hover .link-group-title::after {
-      width: 50px;
-  }
-  
+      transition: width 0.35s ease-out;  
+}
+
+.link-group:hover .link-group-title::after {
+    width: 100%;
+}
+
+.link-group .link-group-title {
+    transition: transform 0.25s ease-out;
+}
+
+.link-group:hover .link-group-title {
+    transform: translateY(-2px);
+}
+
+
   .link-list {
       list-style: none;
       padding: 0;
