@@ -2846,3 +2846,29 @@
       box-shadow: 0 0 15px rgba(0, 170, 255, 0.4);
       border-color: var(--accent-color);
   }
+
+
+  /* Newsletter feedback styles */
+.newsletter-feedback {
+  margin-top: 10px;
+  min-height: 22px;
+}
+
+.feedback-message {
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  display: none;
+}
+
+/* SUCCESS = green */
+.feedback-message.success {
+  display: block;
+  color: #4ade80;
+}
+
+/* ERROR = red */
+.feedback-message.error {
+  display: block;
+  color: #f97373;
+}
