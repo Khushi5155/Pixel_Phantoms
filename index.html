@@ -54,7 +54,8 @@
 
           <div class="hero-description">
             <p class="cyber-text">
-              A student-driven tech community empowering learners through code, design, and collaboration.
+              A student-driven tech community empowering learners through code, design, and
+              collaboration.
               <span class="neon-highlight">Build real projects. Learn by doing.</span>
             </p>
           </div>
@@ -80,7 +81,7 @@
             </h2>
             <div class="line-scanner" aria-hidden="true"></div>
           </div>
-          
+
           <p class="section-sub">> Specialized tracks for skill development and project building</p>
 
           <div class="focus-grid">
@@ -126,7 +127,12 @@
               </div>
               <h3>Open Source</h3>
               <p>Collaborative development and community contributions</p>
-              <a href="https://github.com/sayeeg-11/Pixel_Phantoms" target="_blank" class="focus-link">Contribute →</a>
+              <a
+                href="https://github.com/sayeeg-11/Pixel_Phantoms"
+                target="_blank"
+                class="focus-link"
+                >Contribute →</a
+              >
             </div>
 
             <div class="focus-card">
@@ -140,7 +146,10 @@
           </div>
 
           <div class="focus-footer">
-            <p>> Want to learn more about our complete mission? <a href="pages/about.html" class="cyber-link">Visit About Page</a></p>
+            <p>
+              > Want to learn more about our complete mission?
+              <a href="pages/about.html" class="cyber-link">Visit About Page</a>
+            </p>
           </div>
         </div>
       </section>
@@ -212,7 +221,9 @@
               <div class="sem-info">
                 <h3>System Architecture 101</h3>
                 <p>Speaker: Dr. Alan Grant</p>
-                <a href="https://discord.com/" target="_blank" rel="noopener" class="link-terminal">Join Stream<span aria-hidden="true">_</span></a>
+                <a href="https://discord.com/" target="_blank" rel="noopener" class="link-terminal"
+                  >Join Stream<span aria-hidden="true">_</span></a
+                >
               </div>
             </div>
             <div class="seminar-card reveal-card">
@@ -458,7 +469,7 @@
         </div>
 
         <div class="stats-grid">
-          <div class="stat-card" onclick="window.location.href = 'pages/projects.html'">
+          <div class="stat-card" id="active-projects-card" onclick="window.location.href = 'pages/projects.html'">
             <div class="stat-icon">
               <i class="fas fa-rocket"></i>
             </div>
@@ -469,7 +480,7 @@
             </div>
           </div>
 
-          <div class="stat-card" onclick="window.location.href = 'pages/events.html'">
+          <div class="stat-card" id="upcoming-events-card" onclick="window.location.href = 'pages/events.html'">
             <div class="stat-icon">
               <i class="fas fa-calendar-alt"></i>
             </div>
@@ -482,6 +493,7 @@
 
           <div
             class="stat-card"
+            id="recent-contributions-card"
             onclick="window.open('https://github.com/sayeeg-11/Pixel_Phantoms', '_blank')"
           >
             <div class="stat-icon">
@@ -491,6 +503,39 @@
             <p class="stat-label">Contributions</p>
             <div class="stat-trend">
               <span class="trend-up">↑ 25% this week</span>
+            </div>
+          </div>
+          
+          <div class="stat-card" id="total-members-card" onclick="window.location.href = 'pages/join-us.html'">
+            <div class="stat-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3 class="stat-value" id="home-total-members">150</h3>
+            <p class="stat-label">Total Members</p>
+            <div class="stat-trend">
+              <span class="trend-up">↑ 8% this month</span>
+            </div>
+          </div>
+          
+          <div class="stat-card" id="active-members-card" onclick="window.location.href = 'pages/projects.html'">
+            <div class="stat-icon">
+              <i class="fas fa-user-check"></i>
+            </div>
+            <h3 class="stat-value" id="home-active-members">65</h3>
+            <p class="stat-label">Active Members</p>
+            <div class="stat-trend">
+              <span class="trend-neutral">30-day activity</span>
+            </div>
+          </div>
+          
+          <div class="stat-card" id="completed-projects-card" onclick="window.location.href = 'pages/projects.html'">
+            <div class="stat-icon">
+              <i class="fas fa-tasks"></i>
+            </div>
+            <h3 class="stat-value" id="home-completed-projects">5</h3>
+            <p class="stat-label">Completed Projects</p>
+            <div class="stat-trend">
+              <span class="trend-up">↑ 3 this quarter</span>
             </div>
           </div>
         </div>
@@ -568,20 +613,30 @@
     <script src="js/navbar.min.js"></script>
     <script src="js/footer.js"></script>
     <script>
-      // Render these immediately so the theme.js can find the toggle switch
-      renderNavbar();
-      renderFooter('');
+      const basePath = '';
 
-      // Focus management for skip link
+      renderNavbar(basePath);
+      renderFooter(basePath);
+
       document.addEventListener('DOMContentLoaded', function () {
         const skipLink = document.getElementById('skip-link');
-        const mainContent = document.getElementById('main-content');
+        const mainContent =
+          document.getElementById('main-content') || document.querySelector('main');
 
-        skipLink.addEventListener('click', function (e) {
-          e.preventDefault();
-          mainContent.setAttribute('tabindex', '-1');
-          mainContent.focus();
-        });
+        if (skipLink && mainContent) {
+          skipLink.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // Add tabindex if not already present and focus
+            if (!mainContent.hasAttribute('tabindex')) {
+              mainContent.setAttribute('tabindex', '-1');
+            }
+            mainContent.focus();
+
+            // Optional: smooth scroll to the main content
+            mainContent.scrollIntoView({ behavior: 'smooth' });
+          });
+        }
       });
     </script>
 
@@ -591,6 +646,7 @@
     <script src="js/home-gsap.min.js"></script>
     <script src="js/home-leaderboard.min.js"></script>
     <script src="js/quick-stats.js"></script>
+    <script src="js/home-stats-enhanced.js"></script>
     <script src="js/theme-enhanced.js"></script>
     <script src="js/share-button.js"></script>
     <script>
@@ -608,10 +664,16 @@
           const projectsElement = document.getElementById('home-active-projects');
           const eventsElement = document.getElementById('home-upcoming-events');
           const contributionsElement = document.getElementById('home-recent-contributions');
+          const membersElement = document.getElementById('home-total-members');
+          const activeMembersElement = document.getElementById('home-active-members');
+          const completedProjectsElement = document.getElementById('home-completed-projects');
 
           const currentProjects = parseInt(projectsElement.textContent) || 8;
           const currentEvents = parseInt(eventsElement.textContent) || 3;
           const currentContributions = parseInt(contributionsElement.textContent) || 50;
+          const currentMembers = parseInt(membersElement.textContent) || 150;
+          const currentActiveMembers = parseInt(activeMembersElement.textContent) || 65;
+          const currentCompletedProjects = parseInt(completedProjectsElement.textContent) || 5;
 
           const newProjects = Math.max(1, currentProjects + Math.floor(Math.random() * 3) - 1);
           const newEvents = Math.max(1, currentEvents + Math.floor(Math.random() * 3) - 1);
@@ -619,10 +681,16 @@
             10,
             currentContributions + Math.floor(Math.random() * 10) - 3
           );
+          const newMembers = Math.max(100, currentMembers + Math.floor(Math.random() * 5));
+          const newActiveMembers = Math.max(50, currentActiveMembers + Math.floor(Math.random() * 3));
+          const newCompletedProjects = Math.max(1, currentCompletedProjects + Math.floor(Math.random() * 2));
 
           animateValue(projectsElement, currentProjects, newProjects, 500);
           animateValue(eventsElement, currentEvents, newEvents, 500);
           animateValue(contributionsElement, currentContributions, newContributions, 500);
+          animateValue(membersElement, currentMembers, newMembers, 500);
+          animateValue(activeMembersElement, currentActiveMembers, newActiveMembers, 500);
+          animateValue(completedProjectsElement, currentCompletedProjects, newCompletedProjects, 500);
 
           setTimeout(function () {
             icon.classList.remove('spinning');
