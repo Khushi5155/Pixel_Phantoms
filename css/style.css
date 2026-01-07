@@ -31,7 +31,7 @@
     --footer-input-bg: #2d3748;
     --input-border: #4a5568;
     --input-text: #e2e8f0;
-    --input-placeholder: #718096;
+    --input-placeholder: #cbd5e1; /* IMPROVED CONTRAST FOR ACCESSIBILITY */
     --accent-primary: #667eea;
     --accent-secondary: #764ba2;
 
@@ -117,7 +117,7 @@
     --footer-input-bg: #2d3748;
     --input-border: #4a5568;
     --input-text: #e2e8f0;
-    --input-placeholder: #718096;
+    --input-placeholder: #cbd5e1; /* IMPROVED CONTRAST */
     --accent-primary: #00aaff;
     --accent-secondary: #0088cc;
 
@@ -349,12 +349,13 @@ body.mobile-menu-open {
     text-decoration: none;
     font-size: 16px;
     font-weight: 600;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* BOUNCY TRANSITION ADDED */
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     padding: 12px 20px;
     border-radius: 50px;
     position: relative;
     overflow: hidden;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
     font-family: var(--font-primary);
@@ -375,17 +376,25 @@ body.mobile-menu-open {
     left: 100%;
 }
 
-.nav-links a:hover,
-.nav-links .active {
+/* BOUNCY HOVER ANIMATION */
+@keyframes hoverBounce {
+    0%, 100% { transform: translateY(-2px) scale(1); }
+    50% { transform: translateY(-6px) scale(1.08); }
+}
+
+.nav-links a:hover {
     color: var(--accent-color);
     background: rgba(0, 170, 255, 0.08);
-    transform: translateY(-2px);
+    animation: hoverBounce 0.6s ease-in-out infinite;
     box-shadow: 0 6px 15px rgba(0, 170, 255, 0.2);
 }
 
 .nav-links .active {
+    color: var(--accent-color);
     background: linear-gradient(135deg, rgba(0, 170, 255, 0.15), rgba(0, 136, 204, 0.1));
     border: 1px solid rgba(0, 170, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 170, 255, 0.2);
 }
 
 /* Navbar Icons */
@@ -2935,6 +2944,11 @@ main:focus {
     font-family: var(--font-primary);
 }
 
+/* BACK TO TOP POSITION FIX - PREVENT OVERLAP */
+.scroll-to-top, #back-to-top {
+    bottom: 90px !important;
+}
+
 /* Mobile adjustments */
 @media (max-width: 420px) {
     #feedback-widget {
@@ -2948,6 +2962,11 @@ main:focus {
         left: 12px !important;
         right: 12px !important;
         width: auto !important;
+    }
+
+    /* CLEAR FOOTER LINKS ON MOBILE */
+    .scroll-to-top, #back-to-top {
+        bottom: 120px !important;
     }
 }
 
