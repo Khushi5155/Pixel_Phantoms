@@ -30,6 +30,7 @@
           >
             <i class="fab fa-github"></i>
           </a>
+
           <a
             href="https://www.instagram.com/pixelphantoms_"
             class="social-link"
@@ -39,6 +40,7 @@
           >
             <i class="fab fa-instagram"></i>
           </a>
+
           <a
             href="https://discord.com/"
             class="social-link"
@@ -48,6 +50,7 @@
           >
             <i class="fab fa-discord"></i>
           </a>
+
           <a
             href="https://www.linkedin.com/company/pixel-phantoms/"
             class="social-link"
@@ -100,7 +103,8 @@
           Get updates about events, projects, and community news.
         </p>
 
-        <form class="newsletter-form" aria-label="Newsletter subscription">
+        <!-- Keep no-loading so scripts.js doesn't hijack this submit handler -->
+        <form class="newsletter-form no-loading" aria-label="Newsletter subscription">
           <div class="input-group">
             <input
               type="email"
@@ -112,6 +116,11 @@
             <button type="submit" class="newsletter-btn" aria-label="Subscribe">
               <i class="fas fa-paper-plane"></i>
             </button>
+          </div>
+
+          <!-- Added feedback area -->
+          <div class="newsletter-feedback">
+            <p class="feedback-message"></p>
           </div>
         </form>
       </div>

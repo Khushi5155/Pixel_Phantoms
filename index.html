@@ -7,7 +7,8 @@
   <title>Pixel Phantoms | The Future of Tech</title>
   <link rel="icon" href="assets/logo.png" />
 
-  <link rel="stylesheet" href="css/scroll-progress.css" />
+<!-- scroll-buttons.css logic moved to back-to-top.css and share-button.css -->
+<!-- <link rel="stylesheet" href="css/scroll-buttons.css" /> -->
   <link rel="stylesheet" href="css/style.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/back-to-top.css" />
@@ -687,19 +688,14 @@
   <script src="js/feedback.js"></script>
   <script src="js/scroll-progress.js"></script>
   <script src="js/feedback-widget.js"></script>
-  <style>
-    #feedback-panel {
-      margin-top: 50px;
-    }
-  </style>
 
   <div id="feedback-widget">
-    <button id="feedback-toggle" style="position: fixed; right: 17px; bottom: 100px">💬</button>
+    <button id="feedback-toggle">💬</button>
 
     <div id="feedback-panel">
       <div class="ff-header">
         <h3>Send Feedback</h3>
-        <button id="feedback-close" class="ff-close">✕</button>
+        <button type="button" id="feedback-close" class="ff-close">✕</button>
       </div>
 
       <form id="feedback-form">
