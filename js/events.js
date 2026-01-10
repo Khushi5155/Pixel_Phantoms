@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const normalizeDate = dateStr => {
     const d = new Date(dateStr);
-    d.setHours(0, 0, 0, 0); // Normalize to midnight
+    d.setHours(0, 0, 0, 0);
     return d;
   };
 
@@ -38,38 +38,32 @@ document.addEventListener('DOMContentLoaded', () => {
       const today = new Date();
       today.setHours(0, 0, 0, 0);
 
-      // Separate upcoming and past events
       const upcomingEvents = events
         .filter(e => normalizeDate(e.date) >= today)
         .sort((a, b) => normalizeDate(a.date) - normalizeDate(b.date));
 
       const pastEvents = events
         .filter(e => normalizeDate(e.date) < today)
-        .sort((a, b) => normalizeDate(b.date) - normalizeDate(a.date)); // newest first
+        .sort((a, b) => normalizeDate(b.date) - normalizeDate(a.date));
 
-      // Show countdown for the next upcoming event
       if (upcomingEvents.length > 0 && typeof startCountdown === 'function') {
         startCountdown(upcomingEvents[0]);
       }
 
       container.innerHTML = '';
-
-      // Combine upcoming first, then past events
       const allEvents = [...upcomingEvents, ...pastEvents];
 
-      /* ---------- Render Event Cards ---------- */
       allEvents.forEach(event => {
         const hasValidRegistration =
           event.registrationOpen && event.registrationLink && event.registrationLink.trim() !== '';
 
         const eventDate = normalizeDate(event.date);
 
-        // Determine status
         let computedStatus = 'Upcoming';
         if (eventDate < today) computedStatus = 'Ended';
         else if (eventDate.getTime() === today.getTime()) computedStatus = 'Today';
 
-        const statusClass = computedStatus.toLowerCase(); // upcoming, today, ended
+        const statusClass = computedStatus.toLowerCase();
 
         const card = document.createElement('article');
         card.className = `event-card ${statusClass}`;
@@ -85,21 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
           <div class="event-meta">
             <div class="meta-item">
-              <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+              <i class="fa-solid fa-calendar-days"></i>
               <span>${formatDate(event.date)}</span>
             </div>
             <div class="meta-item">
-              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              <i class="fa-solid fa-location-dot"></i>
               <span>${event.location || 'To be announced'}</span>
             </div>
-            ${
-              event.organizer
-                ? `<div class="meta-item">
-                     <i class="fa-solid fa-user" aria-hidden="true"></i>
-                     <span>${event.organizer}</span>
-                   </div>`
-                : ''
-            }
           </div>
 
           <p class="event-description">
@@ -109,13 +95,12 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="event-register">
             ${
               hasValidRegistration && eventDate >= today
-                ? `<a href="${event.registrationLink}" target="_blank" 
+                ? `<a href="${event.registrationLink}" target="_blank"
                      class="btn-register btn-open-register"
-                     aria-label="Register for ${event.title || 'Event'}"
                      data-event-title="${(event.title || 'Event').replace(/"/g, '&quot;')}">
                      Register Now
                    </a>`
-                : `<button class="btn-register disabled" disabled aria-disabled="true">
+                : `<button class="btn-register disabled" disabled>
                      Registration Closed
                    </button>`
             }
@@ -124,15 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         container.appendChild(card);
       });
-    })
-    .catch(err => {
-      console.error('Error loading events:', err);
-      container.innerHTML = `
-        <div class="no-events error">
-          <h3>Something went wrong</h3>
-          <p>Unable to load events. Please try again later.</p>
-        </div>
-      `;
     });
 
   /* ---------- Registration Modal Logic ---------- */
@@ -144,7 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const cancelBtn = modal?.querySelector('.modal-cancel');
 
     const openModal = title => {
-      if (!modal) return;
       modalTitle.textContent = title || 'Event';
       modal.classList.add('show');
       modal.setAttribute('aria-hidden', 'false');
@@ -152,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const closeModal = () => {
-      if (!modal) return;
       modal.classList.remove('show');
       modal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
@@ -173,11 +147,44 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.target === modal) closeModal();
     });
 
+    /* 🔐 VALIDATION ADDED HERE */
     registerForm?.addEventListener('submit', e => {
       e.preventDefault();
+
+      const firstName = registerForm.firstName.value.trim();
+      const lastName = registerForm.lastName.value.trim();
+      const age = parseInt(registerForm.age.value, 10);
+      const email = registerForm.email.value.trim();
+
+      const nameRegex = /^[A-Z][a-z]{1,29}$/;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!nameRegex.test(firstName)) {
+        alert('First name must start with a capital letter and contain only alphabets.');
+        return;
+      }
+
+      if (!nameRegex.test(lastName)) {
+        alert('Last name must start with a capital letter and contain only alphabets.');
+        return;
+      }
+
+
+      if (isNaN(age) || age < 18) {
+        alert('You must be at least 18 years old to register.');
+        return;
+      }
+
+
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
       alert('Successfully registered!');
       registerForm.reset();
       closeModal();
     });
   })();
 });
+
