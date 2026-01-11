@@ -648,8 +648,8 @@
     border-radius: 20px;
     font-weight: bold;
     font-size: 0.9rem;
-    background: var(--bg-primary);
-    color: var(--accent-color);
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
     border: 1px solid var(--accent-color);
 }
 

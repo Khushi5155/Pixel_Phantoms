@@ -1091,13 +1091,13 @@ footer {
 
 /* Light mode – improve stat visibility */
 .light-mode .modal-stats-row {
-    background: #f3f4f6;
+    background: rgba(0, 0, 0, 0.2);
 }
 .light-mode .modal-stats-row .stat-label {
-    color: #1f2937;
+    color: white;
 }
 .light-mode .modal-stats-row .stat-number {
-    color: #000000;
+    color: white;
 }
 
 .modal-stat {
