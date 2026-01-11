@@ -801,6 +801,20 @@
   font-family: var(--font-primary);
 }
 
+.join-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 8px 0 40px;
+}
+
+.join-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+  text-align: center;
+}
+
 .organize-image {
   background: linear-gradient(135deg, var(--accent-color), #0088cc);
   display: flex;
