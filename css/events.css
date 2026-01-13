@@ -816,7 +816,8 @@ body.dark-mode .no-events.error {
 #register-modal .register-form .validation-icon {
   position: absolute;
   right: 15px;
-  top: 41px;
+  top: 50%;
+  transform: translateY(-50%);
   font-size: 0.9rem;
   pointer-events: none;
   display: none;
