@@ -4,15 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pixel Phantoms | Contributors</title>
-
-    <!-- Styles -->
+    <link rel="icon" href="../assets/logo.png" />
     <link rel="stylesheet" href="../css/scroll-progress.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/contributors.css" />
     <link rel="stylesheet" href="../css/home-gsap.css" />
     <link rel="stylesheet" href="../css/back-to-top.css" />
-
-    <!-- Fonts & Icons -->
     <link
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
       rel="stylesheet"
@@ -22,9 +19,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   </head>
-
   <body class="hacker-theme">
-    <!-- Scroll Progress -->
     <div id="scroll-progress-container">
       <div id="scroll-progress-bar"></div>
     </div>
@@ -57,27 +52,50 @@
         <section class="stats-grid" aria-label="Project contribution statistics">
           <div class="stats-card">
             <h3>Total Contributors</h3>
-            <p id="total-contributors" aria-live="polite">—</p>
+            <div class="stat-value" data-key="contributors">
+              <span class="spinner" aria-hidden="true"></span>
+              <span class="value" id="total-contributors" aria-live="polite"></span>
+            </div>
           </div>
+
           <div class="stats-card">
             <h3>Total Commits</h3>
-            <p id="total-commits">—</p>
+            <div class="stat-value" data-key="commits">
+              <span class="spinner" aria-hidden="true"></span>
+              <span class="value" id="total-commits"></span>
+            </div>
           </div>
+
           <div class="stats-card">
             <h3>Total PRs</h3>
-            <p id="total-prs">—</p>
+            <div class="stat-value" data-key="prs">
+              <span class="spinner" aria-hidden="true"></span>
+              <span class="value" id="total-prs"></span>
+            </div>
           </div>
+
           <div class="stats-card">
             <h3>Total Points</h3>
-            <p id="total-points">—</p>
+            <div class="stat-value" data-key="points">
+              <span class="spinner" aria-hidden="true"></span>
+              <span class="value" id="total-points"></span>
+            </div>
           </div>
+
           <div class="stats-card">
             <h3>GitHub Stars</h3>
-            <p id="total-stars">—</p>
+            <div class="stat-value" data-key="stars">
+              <span class="spinner" aria-hidden="true"></span>
+              <span class="value" id="total-stars"></span>
+            </div>
           </div>
+
           <div class="stats-card">
             <h3>Forks</h3>
-            <p id="total-forks">—</p>
+            <div class="stat-value" data-key="forks">
+              <span class="spinner" aria-hidden="true"></span>
+              <span class="value" id="total-forks"></span>
+            </div>
           </div>
         </section>
 

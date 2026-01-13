@@ -1,182 +1,186 @@
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=Pixel%20Phantoms&desc=From%20Students,%20%20For%20Students&descAlign=49&descAlignY=51&fontAlignY=36"/>
-</p>
+# Pixel Phantoms – Official Website 👻
 
-<h2 align='center'><b>Pixel Phantoms Official Website</b> is a <i>beginner-friendly, responsive, open-source</i> community</h2>
+![Banner](assets/download.svg)
 
-![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen)   
-![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)
+<div align="center">
 
-The project aims to,
 
-- Showcase the **Pixel Phantoms community**
-- Display **events, workshops, achievements, and projects**
-- Introduce the **core committee**
-- Provide **contact & recruitment** sections
-- Serve as a platform for students to **learn and contribute**
+[![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen)](https://github.com/sayeeg-11/Pixel_Phantoms/blob/main/CONTRIBUTING.md)
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/sayeeg-11/Pixel_Phantoms/blob/main/LICENSE)
+[![Open Source](https://img.shields.io/badge/Open%20Source-✓-green.svg)](https://opensource.org/)
 
-> This repository welcomes **students, beginners, and open-source contributors**.
+## A beginner-friendly, responsive, open-source platform for learning and collaboration
+</div>
+
+## 📋 Table of Contents
+
+- 🎯[ Project Overview](#-project-overview)
+- 🌟[ Why This Project Matters](#-why-this-project-matters)
+- 🛠[ Tech Stack](#-tech-stack)
+- 📦 [Installation & Local Setup](#-installation--local-setup)
+- 🔧[ Code Formatting & Linting](#-code-formatting--linting)
+- 🤝 [How to Contribute](#-how-to-contribute)
+- 📁[ Project Structure](#-project-structure)
+- 🎨 [Screenshots & Demo](#-screenshots--demo)
+- 🗺️ [Project Roadmap](#-project-roadmap)
+- 📝[ Issues](#-issues)
+- 📌 [License](#-license)
+- 👥[ Core Committee (2024–25)](#-core-committee-202425)
+- 🔥[ Contributors](#-contributors)
+- 📫 [Contact](#-contact)
 
 ---
 
-## Table of Contents
-- [Why This Project Matters](#-why-this-project-matters)
-- [Tech Stack](#-tech-stack)
-- [How to Install & Run Locally](#-how-to-install--run-locally)
-- [Code Formatting & Linting](#code-formatting--linting)
-- [How to Contribute](#-how-to-contribute)
-- [Project Structure](#--project-structure)
-- [Screenshot / Demo](#--screenshot--demo)
-- [Project Roadmap](#%EF%B8%8F-project-roadmap)
-- [Issues](#-issues)
-- [License](#-license)
-- [Core Committee — 2024–25](#%E2%80%8D-core-committee)
-- [Contributors](#-contributors)
-- [Contact](#-contact)
+## 🎯 Project Overview
+
+The **Pixel Phantoms Official Website** serves as the central digital hub for the Pixel Phantoms student-driven tech community. This platform not only showcases community initiatives but also functions as a real-world, beginner-friendly open-source codebase for hands-on learning.
+
+### Key Features:
+- 📢 Showcases the Pixel Phantoms community and its activities
+- 📅 Highlights events, workshops, achievements, and member projects
+- 👥 Presents the core committee and recruitment details
+- 🎓 Encourages learning, collaboration, and open-source contributions
+- 🌐 Fully responsive design for all devices
+
+> **Note:** Open to students, beginners, and open-source contributors worldwide!
 
 ---
 
 ## 🌟 Why This Project Matters
 
-- Beginner-friendly for first-time contributors  
-- Helps students learn **frontend development**  
-- Encourages open-source collaboration  
-- Real-world project structure and components  
-- Great for improving UI/UX, layout, and responsiveness  
+- 🎯 **Beginner-Friendly Environment** – Perfect for first-time open-source contributors
+- 💻 **Hands-On Learning** – Practical experience with modern frontend development
+- 🤝 **Collaborative Workflows** – Learn Git, issues, PRs, and code reviews
+- 🏗️ **Real-World Structure** – Industry-standard project organization
+- 🎨 **UI/UX Development** – Opportunities to enhance design and responsiveness skills
+
 ---
 
 ## 🛠 Tech Stack
 
-**Frontend:** <img width='20px' src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" /> HTML5 / 
-            <img width='20px' src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" /> CSS3 / 
-            <img width='20px' src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />JavaScript
+### Core Technologies:
+<p >
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" width="40" title="HTML5" />
+  <strong>HTML5</strong>
 
-**Optional Add-ons:** Bootstrap / AOS Animations / jQuery / API Integrations
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" width="40" title="CSS3" />
+  <strong>CSS3</strong>
+<p>
+
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="40" title="JavaScript" />
+  <strong>JavaScript</strong>
+</p>
+
+
+### Optional Add-ons:
+- **Bootstrap** – Responsive framework
+- **AOS Animations** – Scroll animations
+- **jQuery** – Simplified JavaScript
+- **API Integrations** – External data fetching
 
 ---
 
-## 📦 How to Install & Run Locally
+## 📦 Installation & Local Setup
 
 ### Prerequisites
-- A modern web browser (Chrome, Firefox, Safari, Edge)
-- Git (for cloning the repository)
-- Optional: VS Code with Live Server extension for better development experience
 
-### 1️⃣ Clone the Repository
+- 🌐 Modern web browser (Chrome, Firefox, Safari, or Edge)
+- 🐙 **Git** – Required for cloning the repository
+- ⚙️ **Node.js (v16+)** and **npm** – For development tooling
+- 💡 **VS Code** with Live Server extension (Recommended)
+
+### Step-by-Step Setup
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/sayeeg-11/Pixel_Phantoms.git
+   cd Pixel_Phantoms
+2. **Install Dependencies (Recommended for contributors)**
+    ```bash
+    npm install
+**Run the Website Locally**
+
+✅ Option 1: Live Server (Recommended)
+
+Open project in VS Code
+
+Right-click index.html
+
+Select "Open with Live Server"
+
+Access at  **http://127.0.0.1:5500/**
+
+⚠️ Option 2: Direct Browser Access
+
+Open index.html directly in browser
+
+Note: Some JavaScript features may not work due to CORS
+
+<hr>
+
+## 🔧 Code Formatting & Linting
+This project uses automated tools to maintain code quality:
+**Available Commands:**
 ```bash
-git clone https://github.com/your-username/pixel-phantoms-website.git
-cd pixel-phantoms-website
+# Formatting
+
+npm run format          # Format all files
+npm run format:check    # Check formatting without changes
+
+# Linting
+npm run lint           # Check for linting issues
+npm run lint:fix       # Fix linting issues automatically
 ```
 
-### 2️⃣ Run the Website
+**Pre-commit Hooks:**
 
-You can:
+🛡️ Husky and lint-staged automatically run checks before commits
 
-* **Option 1:** Open `index.html` directly in your browser by double-clicking the file or dragging it into the browser window.
-  OR
-* **Option 2:** Use **Live Server** (Recommended for development):
-  - Install the Live Server extension in VS Code.
-  - Right-click on `index.html` in the file explorer.
-  - Select **"Open with Live Server"**.
+🔒 Commits are blocked if formatting/linting checks fail
 
-The website will open in your default browser at `http://127.0.0.1:5500/` (or similar local server address).
+✅ Ensures consistent code quality across all contributions
 
----
-# 🔧 Code Formatting & Linting
-
-This project uses Prettier and ESLint to ensure consistent code style.
-
-### Setup
-
-After cloning the repository, install dependencies:
-``` bash
-npm install
-```
-This will also set up Git hooks automatically (via Husky).
-
-#### Formatting (Prettier)
-
-Format all supported files (.js, .css, and .html)
-```bash
-npm run format
-```
-
-#### Check formatting (no changes)
-
-Useful to verify formatting before committing.
-```bash
-npm run format:check
-```
-
-#### Linting (ESLint)
-
-Run lint checks
-```bash
-npm run lint
-```
-* Reports potential issues and warnings
-* Does not modify files
-
-#### Auto-fix safe issues
-
-```bash
-npm run lint:fix
-```
-Fixes only safe, auto-fixable issues (e.g. spacing, syntax)
-
-#### Pre-commit Hooks
-
-This project uses Husky and lint-staged to enforce formatting and linting before every commit.
-
-* Only staged files are checked
-* JavaScript files:
-   - ESLint (--fix)
-   - Prettier
-* HTML & CSS files:
-   - Prettier
-
-If checks fail → the commit is blocked
-
----
+<hr>
 
 ## 🤝 How to Contribute
+We welcome all contributions – design updates, animations, UI fixes, new pages, and more!
 
-We welcome **all contributions** — design updates, animations, UI fixes, new pages, and more.
+**Contribution Workflow:**
 
-### ✔ Before you start:
+Before Starting:
 
-* Create an **Issue**
-* Wait for the admin to **assign** it
-* Start contributing 🚀
+Create an Issue describing your proposed change
 
-### 📌 Contribution Steps
+Wait for admin to assign the issue to you
 
-1. Fork the repository
-2. Clone your fork:
+Discuss implementation details if needed
 
-   ```bash
-   git clone https://github.com/your-username/pixel-phantoms-website.git
-   ```
-3. Create a feature branch:
+**Development Steps:**
 
-   ```bash
-   git checkout -b feature-name
-   ```
-4. Commit your work:
+```bash
+# 1. Fork the repository
+# 2. Clone your fork
+git clone https://github.com/your-username/pixel-phantoms-website.git
 
-   ```bash
-   git commit -m "Add: short feature description"
-   ```
-5. Push your branch:
+# 3. Create feature branch
+git checkout -b feature-name
 
-   ```bash
-   git push origin feature-name
-   ```
-6. Submit a Pull Request 🎉
+# 4. Make changes and commit
+git commit -m "Add: short feature description"
 
-👉 Detailed contribution guidelines -> [`CONTRIBUTING.md`](CONTRIBUTING.md)
+# 5. Push to your fork
+git push origin feature-name
+```
+**Submit Pull Request:**
 
----
+Open a Pull Request from your branch
+
+Reference the related issue
+
+Wait for review and feedback
+
+**👉 Detailed guidelines: CONTRIBUTING.md**
+<hr>
 
 <details>
 
@@ -255,21 +259,49 @@ pixel-phantoms-website/
 </details>
 
 <details>
-<summary>
-  <h2> 🎨 Screenshot / Demo</h2>
-  <p>Click to view screenshots of the Pixel Phantoms website</p>
-</summary>
+  <summary>
+    <h2>🎨 Screenshot / Demo</h2>
+    <p>Click to view screenshots of the Pixel Phantoms website</p>
+  </summary>
 
-### Home Page
-<img src='assets/demo.png'/>
+  <br/>
 
-### Logo
-<img width='350px' src='assets/logo.png'/>
+  <h3>🏠 Home Page</h3>
+  <img
+    src="assets/demo.png"
+    alt="Pixel Phantoms Home Page"
+    width="100%"
+    style="max-width: 100%; height: auto;"
+  />
 
-### Host Event
-<img width='450px' src='assets/host-event.jpg'/>
+  <hr/>
+
+  <h3>🪪 Logo</h3>
+  <img
+    src="assets/logo.png"
+    alt="Pixel Phantoms Logo"
+    width="300"
+    style="height: auto;"
+  />
+
+  <hr/>
+
+  <h3>🖼️ Additional Images</h3>
+
+  <p align="center">
+    <img src="assets/image.png" alt="Additional Image 1" width="220" style="height:auto;" />
+    <img src="assets/image copy.png" alt="Additional Image 2" width="220" style="height:auto;" />
+    <img src="assets/image copy 2.png" alt="Additional Image 3" width="220" style="height:auto;" />
+  </p>
+
+  <p align="center">
+    <img src="assets/image copy 3.png" alt="Additional Image 4" width="220" style="height:auto;" />
+    <img src="assets/image copy 4.png" alt="Additional Image 5" width="220" style="height:auto;" />
+    <img src="assets/image copy 5.png" alt="Additional Image 6" width="220" style="height:auto;" />
+  </p>
 
 </details>
+
 
 ---
 
@@ -340,10 +372,13 @@ Thanks to all the amazing contributors who make this project better every day! �
 
 ## 📫 Contact
 
-**Admin:**
- **Sayee Gosavi**
-- 📧 [sayeeygosavi@gmail.com](mailto:sayeeygosavi@gmail.com)
-- 📍 Nashik, Maharashtra
+**Admin:**  
+**Sayee Gosavi**
+
+- 📧 Email: [sayeeygosavi@gmail.com](mailto:sayeeygosavi@gmail.com)
+- 💻 GitHub: [sayeeg-11](https://github.com/sayeeg-11)
+- 🔗 LinkedIn: [Sayee Gosavi](https://www.linkedin.com/in/sayee-gosavi11/)
+- 📍 Location: Nashik, Maharashtra
 
 > Let’s build something amazing together! 🚀👻
 

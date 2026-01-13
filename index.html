@@ -6,7 +6,8 @@
     <title>Pixel Phantoms | The Future of Tech</title>
     <link rel="icon" href="assets/logo.png" />
 
-    <link rel="stylesheet" href="css/scroll-progress.css" />
+    <!-- scroll-buttons.css logic moved to back-to-top.css and share-button.css -->
+    <!-- <link rel="stylesheet" href="css/scroll-buttons.css" /> -->
     <link rel="stylesheet" href="css/style.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/back-to-top.css" />
@@ -148,7 +149,7 @@
           <div class="focus-footer">
             <p>
               > Want to learn more about our complete mission?
-              <a href="pages/about.html" class="cyber-link">Visit About Page</a>
+              <a href="/about.html" class="cyber-link">Visit About Page</a>
             </p>
           </div>
         </div>
@@ -221,11 +222,12 @@
               <div class="sem-info">
                 <h3>System Architecture 101</h3>
                 <p>Speaker: Dr. Alan Grant</p>
-                <a href="https://discord.com/" target="_blank" rel="noopener" class="link-terminal"
-                  >Join Stream<span aria-hidden="true">_</span></a
-                >
+                <a href="https://discord.com/" target="_blank" rel="noopener" class="link-terminal">
+                  Join Stream<span aria-hidden="true">_</span>
+                </a>
               </div>
             </div>
+
             <div class="seminar-card reveal-card">
               <div class="sem-status upcoming">● UPCOMING</div>
               <img
@@ -241,6 +243,7 @@
                 <button class="btn-sm">Remind_Me</button>
               </div>
             </div>
+
             <div class="seminar-card reveal-card">
               <div class="sem-status upcoming">● UPCOMING</div>
               <img
@@ -469,7 +472,11 @@
         </div>
 
         <div class="stats-grid">
-          <div class="stat-card" id="active-projects-card" onclick="window.location.href = 'pages/projects.html'">
+          <div
+            class="stat-card"
+            id="active-projects-card"
+            onclick="window.location.href = 'pages/projects.html'"
+          >
             <div class="stat-icon">
               <i class="fas fa-rocket"></i>
             </div>
@@ -480,7 +487,11 @@
             </div>
           </div>
 
-          <div class="stat-card" id="upcoming-events-card" onclick="window.location.href = 'pages/events.html'">
+          <div
+            class="stat-card"
+            id="upcoming-events-card"
+            onclick="window.location.href = 'pages/events.html'"
+          >
             <div class="stat-icon">
               <i class="fas fa-calendar-alt"></i>
             </div>
@@ -505,8 +516,12 @@
               <span class="trend-up">↑ 25% this week</span>
             </div>
           </div>
-          
-          <div class="stat-card" id="total-members-card" onclick="window.location.href = 'pages/join-us.html'">
+
+          <div
+            class="stat-card"
+            id="total-members-card"
+            onclick="window.location.href = 'pages/join-us.html'"
+          >
             <div class="stat-icon">
               <i class="fas fa-users"></i>
             </div>
@@ -516,8 +531,12 @@
               <span class="trend-up">↑ 8% this month</span>
             </div>
           </div>
-          
-          <div class="stat-card" id="active-members-card" onclick="window.location.href = 'pages/projects.html'">
+
+          <div
+            class="stat-card"
+            id="active-members-card"
+            onclick="window.location.href = 'pages/projects.html'"
+          >
             <div class="stat-icon">
               <i class="fas fa-user-check"></i>
             </div>
@@ -527,8 +546,12 @@
               <span class="trend-neutral">30-day activity</span>
             </div>
           </div>
-          
-          <div class="stat-card" id="completed-projects-card" onclick="window.location.href = 'pages/projects.html'">
+
+          <div
+            class="stat-card"
+            id="completed-projects-card"
+            onclick="window.location.href = 'pages/projects.html'"
+          >
             <div class="stat-icon">
               <i class="fas fa-tasks"></i>
             </div>
@@ -539,82 +562,19 @@
             </div>
           </div>
         </div>
-
-        <div class="recent-activity">
-          <h3 class="activity-title"><i class="fas fa-history"></i> RECENT COMMUNITY ACTIVITY</h3>
-          <ul class="activity-list" id="home-recent-activity">
-            <li class="activity-item">
-              <div class="activity-icon">
-                <i class="fas fa-users"></i>
-              </div>
-              <div class="activity-content">
-                <p>Community reached 50+ active members milestone</p>
-                <span class="activity-time">Yesterday</span>
-              </div>
-            </li>
-            <li class="activity-item">
-              <div class="activity-icon">
-                <i class="fas fa-code"></i>
-              </div>
-              <div class="activity-content">
-                <p>New project "Neural Nexus" launched</p>
-                <span class="activity-time">3 days ago</span>
-              </div>
-            </li>
-            <li class="activity-item">
-              <div class="activity-icon">
-                <i class="fas fa-trophy"></i>
-              </div>
-              <div class="activity-content">
-                <p>Winter Code Jam 2025 registrations opened</p>
-                <span class="activity-time">1 week ago</span>
-              </div>
-            </li>
-          </ul>
-        </div>
       </section>
-
-      <nav class="functional-grid" aria-label="Quick Links">
-        <a href="pages/help.html" class="func-card">
-          <div class="func-icon">
-            <i class="fas fa-life-ring" aria-hidden="true"></i>
-          </div>
-          <div class="func-text">
-            <h3>GET_HELP()</h3>
-            <p>Execute support protocols.</p>
-          </div>
-        </a>
-        <a href="pages/terms.html" class="func-card">
-          <div class="func-icon">
-            <i class="fas fa-shield-alt" aria-hidden="true"></i>
-          </div>
-          <div class="func-text">
-            <h3>PRIVACY_POLICY</h3>
-            <p>Read encryption standards.</p>
-          </div>
-        </a>
-        <a href="pages/contributors.html" class="func-card">
-          <div class="func-icon">
-            <i class="fas fa-code-branch" aria-hidden="true"></i>
-          </div>
-          <div class="func-text">
-            <h3>CONTRIBUTORS</h3>
-            <p>View source code.</p>
-          </div>
-        </a>
-      </nav>
     </main>
 
     <div id="footer-placeholder"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-    <script src="js/navbar.min.js"></script>
+    <script src="js/navbar.js"></script>
     <script src="js/footer.js"></script>
     <script>
-      const basePath = '';
-
+      // Render these immediately so the theme.js can find the toggle switch
+      renderNavbar();
+      renderFooter('');
       renderNavbar(basePath);
       renderFooter(basePath);
 
@@ -622,7 +582,6 @@
         const skipLink = document.getElementById('skip-link');
         const mainContent =
           document.getElementById('main-content') || document.querySelector('main');
-
         if (skipLink && mainContent) {
           skipLink.addEventListener('click', function (e) {
             e.preventDefault();
@@ -632,14 +591,12 @@
               mainContent.setAttribute('tabindex', '-1');
             }
             mainContent.focus();
-
             // Optional: smooth scroll to the main content
             mainContent.scrollIntoView({ behavior: 'smooth' });
           });
         }
       });
     </script>
-
     <script src="js/theme.min.js"></script>
     <script src="js/cursor-effect.js"></script>
     <script src="js/scroll-buttons.js"></script>
@@ -682,15 +639,26 @@
             currentContributions + Math.floor(Math.random() * 10) - 3
           );
           const newMembers = Math.max(100, currentMembers + Math.floor(Math.random() * 5));
-          const newActiveMembers = Math.max(50, currentActiveMembers + Math.floor(Math.random() * 3));
-          const newCompletedProjects = Math.max(1, currentCompletedProjects + Math.floor(Math.random() * 2));
+          const newActiveMembers = Math.max(
+            50,
+            currentActiveMembers + Math.floor(Math.random() * 3)
+          );
+          const newCompletedProjects = Math.max(
+            1,
+            currentCompletedProjects + Math.floor(Math.random() * 2)
+          );
 
           animateValue(projectsElement, currentProjects, newProjects, 500);
           animateValue(eventsElement, currentEvents, newEvents, 500);
           animateValue(contributionsElement, currentContributions, newContributions, 500);
           animateValue(membersElement, currentMembers, newMembers, 500);
           animateValue(activeMembersElement, currentActiveMembers, newActiveMembers, 500);
-          animateValue(completedProjectsElement, currentCompletedProjects, newCompletedProjects, 500);
+          animateValue(
+            completedProjectsElement,
+            currentCompletedProjects,
+            newCompletedProjects,
+            500
+          );
 
           setTimeout(function () {
             icon.classList.remove('spinning');
@@ -721,22 +689,39 @@
       });
     </script>
 
+    <!-- Your Remind_Me behavior -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const remindButtons = document.querySelectorAll('.seminar-card .btn-sm');
+
+        remindButtons.forEach(button => {
+          button.addEventListener('click', function () {
+            const seminarCard = button.closest('.seminar-card');
+            const title = seminarCard.querySelector('h3')?.textContent?.trim() || 'this session';
+            const date = seminarCard.querySelector('.sem-date')?.textContent?.trim() || '';
+
+            alert(`Reminder set for "${title}" ${date ? '(' + date + ')' : ''}`);
+
+            button.textContent = 'Reminder Set';
+            button.disabled = true;
+            button.classList.add('reminder-active');
+          });
+        });
+      });
+    </script>
+    <script src="js/feedback.js"></script>
+    <script src="js/scroll-progress.js"></script>
     <script src="js/feedback.js"></script>
     <script src="js/scroll-progress.js"></script>
     <script src="js/feedback-widget.js"></script>
-    <style>
-      #feedback-panel {
-        margin-top: 50px;
-      }
-    </style>
 
     <div id="feedback-widget">
-      <button id="feedback-toggle" style="position: fixed; right: 17px; bottom: 100px">💬</button>
+      <button id="feedback-toggle">💬</button>
 
       <div id="feedback-panel">
         <div class="ff-header">
           <h3>Send Feedback</h3>
-          <button id="feedback-close" class="ff-close">✕</button>
+          <button type="button" id="feedback-close" class="ff-close">✕</button>
         </div>
 
         <form id="feedback-form">
@@ -769,5 +754,52 @@
         </form>
       </div>
     </div>
+    <script src="js/feedback-widget.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const text = 'PIXEL_PHANTOMS';
+        const target = document.getElementById('typewriter-text');
+        let index = 0;
+        let isDeleting = false;
+
+        function type() {
+          const currentText = isDeleting
+            ? text.substring(0, index - 1)
+            : text.substring(0, index + 1);
+
+          target.textContent = currentText;
+          target.setAttribute('data-text', currentText);
+
+          index = isDeleting ? index - 1 : index + 1;
+
+          let typeSpeed = 200;
+          if (isDeleting) {
+            typeSpeed = 100;
+          }
+
+          if (!isDeleting && index === text.length) {
+            typeSpeed = 1000;
+            isDeleting = true;
+          } else if (isDeleting && index === 0) {
+            isDeleting = false;
+            typeSpeed = 100;
+          }
+
+          setTimeout(type, typeSpeed);
+        }
+
+        type();
+      });
+    </script>
+
+    <script>
+      const currentPage = location.pathname.split('/').pop();
+
+      document.querySelectorAll('nav a').forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+          link.classList.add('active');
+        }
+      });
+    </script>
   </body>
 </html>
