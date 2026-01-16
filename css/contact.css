@@ -48,15 +48,6 @@
     animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
-/* --- MAIN LAYOUT GRID (40% / 60% Split) --- */
-.contact-container {
-    display: grid;
-    grid-template-columns: 4fr 6fr; /* 40% Left, 60% Right */
-    gap: 50px;
-    align-items: start;
-}
-
-/* ================= LEFT: DYNAMIC FORM (40%) ================= */
 .contact-box {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(15px);
