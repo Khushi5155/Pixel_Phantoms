@@ -30,8 +30,18 @@ const sendRegistrationEmail = async (user, event) => {
           <p>Thank you for registering for <strong>${event.title}</strong>. We're excited to have you join us!</p>
           <div style="background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #eee; margin: 20px 0;">
             <p style="margin: 0 0 10px;"><strong>Event Details:</strong></p>
-            <p style="margin: 5px 0;">📅 <strong>Date & Time:</strong> ${new Date(event.date).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' })}</p>
-            <p style="margin: 5px 0;">📍 <strong>Venue:</strong> ${event.location || 'Online'}</p>
+            <p style="margin: 5px 0; display: flex; align-items: center;">
+              <span style="min-width: 120px; display: inline-block;">📅 <strong>Date:</strong></span>
+              <span>${new Date(event.date).toLocaleDateString()}</span>
+            </p>
+            <p style="margin: 5px 0; display: flex; align-items: center;">
+              <span style="min-width: 120px; display: inline-block;">🕒 <strong>Time:</strong></span>
+              <span>${new Date(event.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+            </p>
+            <p style="margin: 5px 0; display: flex; align-items: center;">
+              <span style="min-width: 120px; display: inline-block;">📍 <strong>Venue:</strong></span>
+              <span>${event.location || 'Online'}</span>
+            </p>
           </div>
           <p>Please keep this email for your records. If you have any questions, feel free to contact the core committee.</p>
           <p>See you there!</p>
