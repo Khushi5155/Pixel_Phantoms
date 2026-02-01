@@ -707,7 +707,27 @@ body.light-mode .motto-subtitle {
 }
 
 /* PREFERS REDUCED MOTION */
+
 @media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
-  .hero-section::before { animation: none; }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hero-section::before,
+  .motto-banner,
+  .focus-card,
+  .activity-card,
+  .member-card,
+  .social-link {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .member-card:hover,
+  .social-link:hover {
+    transform: none;
+  }
 }
+

@@ -1,86 +1,89 @@
 /* ================= CONTRIBUTORS PAGE STYLES ================= */
-/* ============================================================
-   PIXEL PHANTOMS - ELITE ACCESSIBLE & CENTERED DESIGN
-   Fixes: Visibility, Scroll-free Lead Card, Strict 2-Column Grid
-   ============================================================ */
+:root {
+  /* DARK THEME (DEFAULT) */
+  --bg-primary: #0a0b10;
+  --card-bg: #12141d;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a8;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --accent-color: #00ffa3;
+  --stat-box-bg: rgba(255, 255, 255, 0.03);
+  --shadow-main: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
 
-   :root {
-    /* DARK THEME (DEFAULT) */
-    --bg-primary: #0a0b10;
-    --card-bg: #12141d;
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0a8;
-    --border-color: rgba(255, 255, 255, 0.1);
-    --accent-color: #00ffa3;
-    --stat-box-bg: rgba(255, 255, 255, 0.03);
-    --shadow-main: 0 20px 40px rgba(0, 0, 0, 0.4);
-  }
-  
-  /* RECTIFIED LIGHT MODE - HIGH CONTRAST */
-  body.light-mode {
-    --bg-primary: #f8fafc;    /* Clean slate background */
-    --card-bg: #ffffff;       /* Pure white cards */
-    --text-primary: #0f172a;  /* Deep navy text for maximum readability */
-    --text-secondary: #475569; /* Slate grey for subtext */
-    --border-color: rgba(0, 0, 0, 0.1);
-    --accent-color: #2563eb;  /* Strong blue for high visibility */
-    --stat-box-bg: #f1f5f9;   /* Subtle grey for internal containers */
-    --shadow-main: 0 10px 30px rgba(0, 0, 0, 0.05);
-  }
+/* RECTIFIED LIGHT MODE - HIGH CONTRAST */
+body.light-mode {
+  --bg-primary: #f8fafc;
+  /* Clean slate background */
+  --card-bg: #ffffff;
+  /* Pure white cards */
+  --text-primary: #0f172a;
+  /* Deep navy text for maximum readability */
+  --text-secondary: #475569;
+  /* Slate grey for subtext */
+  --border-color: rgba(0, 0, 0, 0.1);
+  --accent-color: #2563eb;
+  /* Strong blue for high visibility */
+  --stat-box-bg: #f1f5f9;
+  /* Subtle grey for internal containers */
+  --shadow-main: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
 
-  /* --- GLOBAL LAYOUT & CENTERING --- */
-  .contributors-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;      /* Centers every section horizontally */
-    text-align: center;
-    padding: 80px 5%;
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    transition: background 0.3s ease;
-    width: 100%;
-  
-  }
-  
-  .section-header {
-    margin-bottom: 4rem;
-    width: 100%;
-  }
-  
-  /* --- STATS GRID --- */
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 24px;
-    width: 100%;
-    max-width: 1300px;
-    margin-bottom: 80px;
-    justify-content: center;
-    margin-bottom: 80px;
-  }
-  
-  /* --- PROJECT LEAD (SCROLL-FREE WIDTH) --- */
-  .lead-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 100px;
-  }
-  
-  
-  .lead-badge {
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(135deg, #ffd700, #ffa500);
-    color: #000;
-    padding: 8px 24px;
-    border-radius: 30px;
-    font-weight: 800;
-    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
-  }
-  /* --- INCREASED WIDTH: PROJECT LEAD CARD --- */
+/* --- GLOBAL LAYOUT & CENTERING --- */
+.contributors-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Centers every section horizontally */
+  text-align: center;
+  padding: 80px 5%;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background 0.3s ease;
+  width: 100%;
+
+}
+
+.section-header {
+  margin-bottom: 4rem;
+  width: 100%;
+}
+
+/* --- STATS GRID --- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 1300px;
+  margin-bottom: 80px;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+
+/* --- PROJECT LEAD (SCROLL-FREE WIDTH) --- */
+.lead-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+
+.lead-badge {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #ffd700, #ffa500);
+  color: #000;
+  padding: 8px 24px;
+  border-radius: 30px;
+  font-weight: 800;
+  box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+}
+
+/* --- INCREASED WIDTH: PROJECT LEAD CARD --- */
 .lead-container {
   width: 100%;
   max-width: 1300px;
@@ -88,18 +91,20 @@
   justify-content: center;
   margin-bottom: 80px;
 }
-  /* --- PROJECT LEAD (SCROLL-FREE WIDTH) --- */
+
+/* --- PROJECT LEAD (SCROLL-FREE WIDTH) --- */
 .project-lead-card {
   background: var(--card-bg);
   border: 2px solid var(--accent-color);
   border-radius: 40px;
   padding: 60px 40px;
-  
+
   width: fit-content;
   margin: 0 auto 80px auto;
   color: var(--text-primary);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
+
 .lead-badge {
   position: absolute;
   top: -20px;
@@ -112,38 +117,36 @@
   font-weight: 800;
   box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
 }
+
 .top-contributors {
   width: 100%;
-  max-width: 1300px; /* Same as your lead-container */
+  max-width: 1300px;
+  /* Same as your lead-container */
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 150px auto 80px auto;
 }
+
 /* --- TOP CONTRIBUTORS GRID (FULL PAGE WIDTH) --- */
 .contributors-grid {
   display: grid;
-  /* Forces exactly 2 columns that share the space equally */
-  grid-template-columns: 1fr 1fr; 
-  justify-content: center; /* Centers the cards horizontally */
-  /* Generous gap between the two cards */
-  gap: 60px; 
-  /* Allow the grid to take up 95% of the viewport width */
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  gap: 60px;
   width: fit-content;
-  /* Removed the 1250px limit to allow expansion */
-  max-width: 1800px; 
+  max-width: 1800px;
   margin: 60px 60px;
-  
+
   flex-wrap: wrap;
- 
-  
+
+
 }
 
 .contributor-card {
-  /* Forces card to fill 100% of its grid column */
   flex: 0 1 450px;
-  width: min-content; 
-  max-width: none; 
+  width: min-content;
+  max-width: none;
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: 32px;
@@ -152,12 +155,11 @@
   flex-direction: column;
   align-items: center;
   box-shadow: var(--shadow-main);
-  box-sizing: border-box; /* Crucial: includes padding in the width */
+  box-sizing: border-box;
   transition: transform 0.3s ease;
-  
+
 }
 
-/* Ensure the header text also stays centered */
 #top-contributors {
   text-align: center;
   width: 100%;
@@ -169,8 +171,6 @@
   transform: translateY(-8px);
   border-color: var(--accent-color);
 }
-
-/* --- INTERNAL CARD COMPONENTS --- */
 .github-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -187,19 +187,18 @@
 .stat-value {
   color: var(--accent-color);
   font-weight: 800;
-  font-size: 1.6rem; /* Larger numbers for better readability */
+  font-size: 1.6rem;
+ 
 }
 
-/* --- 1. THE "JAN FEB" GAP FIX --- */
-/* Target HTML-based month labels */
 .github-calendar .month {
-  margin-right: 18px !important; /* Increased gap */
+  margin-right: 18px !important;
   display: inline-block !important;
 }
 
 /* Target SVG-based month labels (if the library uses SVG text) */
 .github-calendar text.month {
-  word-spacing: 25px !important; /* Forces space between words like Jan and Feb */
+  word-spacing: 25px !important;
   letter-spacing: 0.5px !important;
 }
 
@@ -208,45 +207,45 @@
   word-spacing: 12px !important;
   padding: 10px 0;
 }
-  
-  
-  /* FIX: Contribution Calendar Labels for Light Mode */
-  .github-calendar .month, 
-  .github-calendar .wday,
-  .github-calendar .legend {
-    fill: var(--text-secondary) !important;
-    color: var(--text-secondary) !important;
-    font-weight: 600;
-    margin-right: 12px !important; /* Forces a gap if rendered as HTML */
-    padding-right: 5px;
-  }
-  /* If the library is using SVG text labels */
-.github-calendar svg text {
-  letter-spacing: 0.5px; /* Adds breathing room between characters */
+.github-calendar .month,
+.github-calendar .wday,
+.github-calendar .legend {
+  fill: var(--text-secondary) !important;
+  color: var(--text-secondary) !important;
+  font-weight: 600;
+  margin-right: 12px !important;
+  padding-right: 5px;
 }
+
+.github-calendar svg text {
+  letter-spacing: 0.5px;
+}
+
 /* --- COMPACT BUTTONS --- */
 .contribution-section .github-calendar a {
   margin: 8px 4px !important;
-  padding: 4px 12px !important; /* Makes the 'Skip to...' buttons shorter */
+  padding: 4px 12px !important;
   font-size: 11px !important;
 }
-  /* Hide library scrollbars when width is sufficient */
-  .github-calendar {
-    overflow-x: hidden !important;
-    padding: 10px 0;
-  }
-  
-  /* --- RECENT PROJECTS --- */
-  .recent-repos {
-    width: 100%;
-    margin-top: 25px;
-    background: var(--stat-box-bg) !important;
-    border-radius: 24px;
-    padding: 25px;
-    border: 1px solid var(--border-color);
-    text-align: left;
-  }
-  /* ============================================================
+
+/* Hide library scrollbars when width is sufficient */
+.github-calendar {
+  overflow-x: hidden !important;
+  padding: 10px 0;
+}
+
+/* --- RECENT PROJECTS --- */
+.recent-repos {
+  width: 100%;
+  margin-top: 25px;
+  background: var(--stat-box-bg) !important;
+  border-radius: 24px;
+  padding: 25px;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+/* ============================================================
    LIGHT MODE VISIBILITY RECTIFICATION
    Fixes: Faint "Skip to..." buttons and invisible calendar labels
    ============================================================ */
@@ -254,36 +253,34 @@
 body.light-mode {
   --bg-primary: #f8fafc;
   --card-bg: #ffffff;
-  --text-primary: #0f172a;   /* High contrast navy */
-  --text-secondary: #334155; /* Dark slate for labels */
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
   --border-color: rgba(0, 0, 0, 0.15);
-  --accent-color: #2563eb;   /* Solid blue for buttons */
+  --accent-color: #2563eb;
   --stat-box-bg: #f1f5f9;
 }
 
-/* --- CALENDAR BUTTONS FIX --- */
-/* This targets the "Skip to..." and "Learn how..." buttons specifically */
 body.light-mode .contribution-section .github-calendar a {
   background: rgba(37, 99, 235, 0.08) !important;
   border: 1px solid #2563eb !important;
-  color: #1e40af !important; /* Deep blue text for readability */
+  color: #1e40af !important;
   font-weight: 700 !important;
 }
 
 body.light-mode .contribution-section .github-calendar a[href*="contributions-year-list"],
 body.light-mode .contribution-section .github-calendar a[href*="how-we-count-contributions"] {
-  background: #2563eb !important; /* Solid blue background */
-  color: #ffffff !important;      /* White text on dark blue */
+  background: #2563eb !important;
+  color: #ffffff !important;
   border: none !important;
 }
 
 /* --- CALENDAR TEXT & LABELS FIX --- */
-body.light-mode .github-calendar .month, 
+body.light-mode .github-calendar .month,
 body.light-mode .github-calendar .wday,
 body.light-mode .github-calendar .legend,
 body.light-mode .contribution-section h4 {
-  fill: #0f172a !important;   /* Force SVG text to be navy */
-  color: #0f172a !important;  /* Force standard text to be navy */
+  fill: #0f172a !important;
+  color: #0f172a !important;
   opacity: 1 !important;
   font-weight: 700 !important;
 }
@@ -303,6 +300,7 @@ body.light-mode .repo-item {
   border: 1px solid rgba(0, 0, 0, 0.05) !important;
   color: #1e293b !important;
 }
+
 /* Add these styles to your CSS file */
 
 .activity-item {
@@ -323,7 +321,7 @@ body.light-mode .repo-item {
   border-color: #3b82f6;
   transform: translateX(8px) translateY(-2px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-  
+
 }
 
 /* Bullet point pulse on hover */
@@ -331,51 +329,66 @@ body.light-mode .repo-item {
   transform: scale(1.4);
   box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
 }
-  /* --- RESPONSIVENESS --- */
-  @media (max-width: 1000px) {
-    .contributors-grid {
-      grid-template-columns: 1fr; /* Stacks to 1 column on tablets */
-      max-width: 600px;
-    }
-    
-    .project-lead-card {
-      padding: 40px 20px;
-    }
+
+/* --- RESPONSIVENESS --- */
+@media (max-width: 1000px) {
+  .contributors-grid {
+    grid-template-columns: 1fr;
+    max-width: 600px;
   }
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+
+  .project-lead-card {
+    padding: 40px 20px;
   }
-  
-  .contribution-card {
-    animation: fadeInUp 0.6s ease-out forwards;
-  }
-  
-  /* Staggered animation for list items */
-  .contribution-item {
+}
+
+@keyframes fadeInUp {
+  from {
     opacity: 0;
-    animation: fadeInUp 0.5s ease-out forwards;
+    transform: translateY(20px);
   }
-  
-  .contribution-item:nth-child(1) { animation-delay: 0.1s; }
-  .contribution-item:nth-child(2) { animation-delay: 0.2s; }
-  .contribution-item:nth-child(3) { animation-delay: 0.3s; }
-  .contribution-item:nth-child(4) { animation-delay: 0.4s; }
-  .scroll-to-top {
-    transition: transform 0.3s ease, background-color 0.3s ease;
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .scroll-to-top:hover {
-    transform: scale(1.1) translateY(-5px);
-    background-color: #2563eb; /* Slightly darker blue */
-  }
-/* --- SECTION HEADER & STATS --- */
+}
+
+.contribution-card {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Staggered animation for list items */
+.contribution-item {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.contribution-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.contribution-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.contribution-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.contribution-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.scroll-to-top {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.scroll-to-top:hover {
+  transform: scale(1.1) translateY(-5px);
+  background-color: #2563eb;
+  /* Slightly darker blue */
+}
 .contributors-section {
   padding: 60px 50px;
 }
@@ -662,10 +675,12 @@ body.light-mode .repo-item {
     padding: 16px;
     gap: 12px;
   }
+
   .contributor-card img {
     width: 64px;
     height: 64px;
   }
+
   .contributor-card:hover {
     transform: translateY(-2px);
   }
@@ -676,6 +691,7 @@ body.light-mode .repo-item {
     padding: 20px;
     gap: 14px;
   }
+
   .contributor-card img {
     width: 72px;
     height: 72px;
@@ -689,11 +705,13 @@ body.light-mode .repo-item {
     opacity: 0;
     transform: translateY(12px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 .contributor-card.animate {
   animation: fadeInUp 0.6s ease-out both;
 }
@@ -701,6 +719,7 @@ body.light-mode .repo-item {
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
+
   .contributor-card,
   .contributor-card img,
   .stat-value {
@@ -735,13 +754,6 @@ body.light-mode .repo-item {
   }
 }
 
-
-/* =========================================
-   1. LEAGUE CARD STYLES (GOLD, SILVER, BRONZE)
-   ========================================== */
-
-
-/* --- GOLD LEAGUE --- */
 .contributor-card.tier-gold {
   border: 2px solid #ffd700;
   background: linear-gradient(145deg, rgba(255, 215, 0, 0.08), var(--card-bg));
@@ -863,14 +875,6 @@ body.light-mode .repo-item {
   color: var(--text-secondary);
   background: rgba(0, 170, 255, 0.1);
 }
-
-
-/* =========================================
-   2. DYNAMIC MODAL STYLES (Based on League)
-   ========================================== */
-
-
-/* --- GOLD MODAL THEME --- */
 .modal-container.tier-gold {
   border: 2px solid #ffd700;
   box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
@@ -1094,12 +1098,10 @@ body.light-mode .repo-item {
   left: -150%;
   width: 120%;
   height: 200%;
-  background: linear-gradient(
-    120deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.08) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(120deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.08) 50%,
+      transparent 100%);
   transform: rotate(20deg);
   pointer-events: none;
   opacity: 0;
@@ -1165,6 +1167,7 @@ body.light-mode .repo-item {
 }
 
 @keyframes icon-float {
+
   0%,
   100% {
     transform: translateY(0);
@@ -1375,9 +1378,6 @@ body.light-mode .repo-item {
   transform: translateY(-2px);
 }
 
-
-/* ================= GITHUB STATS INTEGRATION ================= */
-
 .github-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1462,9 +1462,6 @@ body.light-mode .repo-item {
   margin-right: 8px;
   color: #ff6b6b;
 }
-
-
-/* ================= RECENT REPOS SECTION ================= */
 
 .recent-repos {
   background: #f6f8fa;
@@ -1560,6 +1557,7 @@ body.dark-mode .repo-item:hover {
   font-size: 13px;
   padding: 16px;
 }
+
 .hacker-theme .recent-repos,
 body.dark-mode .recent-repos {
   background: rgba(30, 30, 30, 0.5);
@@ -1571,58 +1569,6 @@ body.dark-mode .repo-item {
   background: rgba(50, 50, 50, 0.5);
   border-color: rgba(255, 255, 255, 0.05);
 }
-/* ================= CONTRIBUTION CALENDAR SECTION ================= */
-
-.contribution-section {
-  margin-top: 20px;
-  padding: 16px;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.contribution-section h4 {
-  margin: 0 0 12px 0;
-  font-size: 14px;
-  color: var(--text-primary);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.github-calendar {
-  width: 100%;
-  overflow-x: auto;
-  padding: 8px 0;
-}
-
-.loading-text {
-  color: #6c757d;
-  font-size: 13px;
-  padding: 20px 0;
-  display: block;
-  text-align: center;
-  animation: pulse 1.5s ease-in-out infinite;
-}
-
-.calendar-error {
-  text-align: center;
-  color: var(--text-secondary);
-  font-size: 13px;
-  padding: 20px;
-}
-
-.hacker-theme .calendar.calendar,
-body.dark-mode .calendar.calendar {
-  color: var(--text-primary);
-}
-
-.hacker-theme .calendar .contrib-legend .legend,
-body.dark-mode .calendar .contrib-legend .legend {
-  color: var(--text-secondary);
-}
-
-/* ================= RESPONSIVE DESIGN ================= */
 
 @media (min-width: 1445px) and (max-width: 2560px) {
   .contributors-grid {
@@ -1763,6 +1709,55 @@ body.dark-mode .calendar .contrib-legend .legend {
 }
 
 /* ==== GITHUB CALENDAR LINK BUTTONS ==== */
+
+.contribution-section {
+  margin-top: 20px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contribution-section h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  color: var(--text-primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.github-calendar {
+  width: 100%;
+  overflow-x: auto;
+  padding: 8px 0;
+}
+
+.loading-text {
+  color: #6c757d;
+  font-size: 13px;
+  padding: 20px 0;
+  display: block;
+  text-align: center;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.calendar-error {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 13px;
+  padding: 20px;
+}
+
+.hacker-theme .calendar.calendar,
+body.dark-mode .calendar.calendar {
+  color: var(--text-primary);
+}
+
+.hacker-theme .calendar .contrib-legend .legend,
+body.dark-mode .calendar .contrib-legend .legend {
+  color: var(--text-secondary);
+}
 
 .contribution-section .github-calendar a {
   display: inline-flex;
@@ -1928,28 +1923,33 @@ body.dark-mode .calendar .contrib-legend .legend {
 }
 
 /* Horizontal wavy positioning - alternating up and down */
-.roadmap-step:nth-child(2) { /* Step 1 - Left, Up */
+.roadmap-step:nth-child(2) {
+  /* Step 1 - Left, Up */
   left: 2%;
   top: 15%;
 }
 
-.roadmap-step:nth-child(3) { /* Step 2 - Quarter, Down */
+.roadmap-step:nth-child(3) {
+  /* Step 2 - Quarter, Down */
   left: 22%;
   top: 55%;
 }
 
-.roadmap-step:nth-child(4) { /* Step 3 - Center, Up */
+.roadmap-step:nth-child(4) {
+  /* Step 3 - Center, Up */
   left: 50%;
   top: 15%;
   transform: translateX(-50%);
 }
 
-.roadmap-step:nth-child(5) { /* Step 4 - Three-quarter, Down */
+.roadmap-step:nth-child(5) {
+  /* Step 4 - Three-quarter, Down */
   right: 22%;
   top: 55%;
 }
 
-.roadmap-step:nth-child(6) { /* Step 5 - Right, Up */
+.roadmap-step:nth-child(6) {
+  /* Step 5 - Right, Up */
   right: 2%;
   top: 15%;
 }
@@ -2020,15 +2020,20 @@ body.dark-mode .calendar .contrib-legend .legend {
 }
 
 @keyframes icon-bounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   25% {
     transform: translateY(-8px);
   }
+
   50% {
     transform: translateY(-4px);
   }
+
   75% {
     transform: translateY(-6px);
   }
@@ -2121,10 +2126,13 @@ body.dark-mode .calendar .contrib-legend .legend {
 }
 
 @keyframes pulse-dot {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.6;
     transform: translateX(-50%) scale(1);
   }
+
   50% {
     opacity: 1;
     transform: translateX(-50%) scale(1.5);
@@ -2156,10 +2164,21 @@ body.dark-mode .calendar .contrib-legend .legend {
     width: 180px;
   }
 
-  .roadmap-step:nth-child(2) { left: 3%; }
-  .roadmap-step:nth-child(3) { left: 23%; }
-  .roadmap-step:nth-child(5) { right: 23%; }
-  .roadmap-step:nth-child(6) { right: 3%; }
+  .roadmap-step:nth-child(2) {
+    left: 3%;
+  }
+
+  .roadmap-step:nth-child(3) {
+    left: 23%;
+  }
+
+  .roadmap-step:nth-child(5) {
+    right: 23%;
+  }
+
+  .roadmap-step:nth-child(6) {
+    right: 3%;
+  }
 
   .step-node {
     width: 75px;
@@ -2180,11 +2199,29 @@ body.dark-mode .calendar .contrib-legend .legend {
     width: 160px;
   }
 
-  .roadmap-step:nth-child(2) { left: 4%; top: 10%; }
-  .roadmap-step:nth-child(3) { left: 24%; top: 60%; }
-  .roadmap-step:nth-child(4) { top: 10%; }
-  .roadmap-step:nth-child(5) { right: 24%; top: 60%; }
-  .roadmap-step:nth-child(6) { right: 4%; top: 10%; }
+  .roadmap-step:nth-child(2) {
+    left: 4%;
+    top: 10%;
+  }
+
+  .roadmap-step:nth-child(3) {
+    left: 24%;
+    top: 60%;
+  }
+
+  .roadmap-step:nth-child(4) {
+    top: 10%;
+  }
+
+  .roadmap-step:nth-child(5) {
+    right: 24%;
+    top: 60%;
+  }
+
+  .roadmap-step:nth-child(6) {
+    right: 4%;
+    top: 10%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2274,6 +2311,7 @@ body.dark-mode .calendar .contrib-legend .legend {
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
+
   .roadmap-step,
   .step-node,
   .step-icon,
