@@ -1162,6 +1162,22 @@
     width: 180px;
     font-size: 0.8rem;
   }
+  .step-icon { margin-bottom: var(--spacing-sm); }
+}
+/* OOP SECTION */
+.oop-section {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: var(--spacing-xxl) var(--spacing-lg);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.oop-header .section-title {
+  font-size: 3rem;
+  color: var(--accent-color);
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  animation: fadeInUp 1s ease forwards;
 }
 /* PROJECTS SECTION - ENHANCED */
 .projects-section {
@@ -1195,6 +1211,8 @@
 /* PROJECT CARDS - HORIZONTAL */
 .projects-cards {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   gap: var(--spacing-xl);
   flex-wrap: wrap;
