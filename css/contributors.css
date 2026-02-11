@@ -1,4 +1,6 @@
 /* ================= CONTRIBUTORS PAGE STYLES ================= */
+
+/* CSS VARIABLES FOR THEMES */
 :root {
   /* Light theme variables */
   --bg-primary: #f5f7fa;
@@ -163,15 +165,6 @@
 }
 
 [data-theme='dark'] .hack-main-card h3 {
-  --text-primary: #ffffff;
-}
-
-#home-event-desc {
-  --text-primary: rgb(255, 255, 255);
-  color: var(--text-primary);
-}
-
-[data-theme='dark'] #home-event-desc {
   --text-primary: #ffffff;
 }
 
@@ -461,7 +454,7 @@ body.light-mode .repo-item {
 
 /* The Hover State */
 .activity-item:hover {
-  background-color: #ffffff;
+ 
   border-color: #3b82f6;
   transform: translateX(8px) translateY(-2px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
@@ -2337,6 +2330,82 @@ body.dark-mode .calendar .contrib-legend .legend {
   transform: translateX(-50%);
 }
 
+.activity-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-radius: 12px;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid transparent;
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: slideFadeIn 0.5s forwards;
+  animation-delay: 0.2s; /* will override per item */
+}
+
+/* Slide & fade-in animation */
+@keyframes slideFadeIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Staggered animation using JS (optional) */
+.activity-item:nth-child(1) { animation-delay: 0.1s; }
+.activity-item:nth-child(2) { animation-delay: 0.25s; }
+.activity-item:nth-child(3) { animation-delay: 0.4s; }
+
+/* Hover effect */
+.activity-item:hover {
+  border-color: var(--accent-color);
+  transform: translateX(12px) translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.12);
+  background: rgba(0, 217, 255, 0.05);
+}
+
+/* Marker / Bullet styling */
+.activity-marker.bullet {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  margin-right: 14px;
+  flex-shrink: 0;
+  transition: all 0.35s ease;
+  box-shadow: 0 0 6px rgba(0, 217, 255, 0.3);
+}
+
+/* Marker pulse on hover */
+.activity-item:hover .bullet {
+  transform: scale(1.5);
+  box-shadow: 0 0 12px rgba(0, 217, 255, 0.6), 0 0 20px rgba(0, 217, 255, 0.3);
+}
+
+/* Commit message micro bounce on hover */
+.activity-item:hover .commit-msg {
+  transform: translateY(-2px);
+  transition: transform 0.25s ease;
+}
+
+/* Commit date subtle fade on hover */
+.activity-item:hover .commit-date {
+  color: var(--accent-color);
+  transition: color 0.25s ease;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 1000px) {
+  .activity-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
 @keyframes pulse-dot {
   0%, 100% {
     opacity: 0.5;
@@ -2515,3 +2584,168 @@ body.dark-mode .calendar .contrib-legend .legend {
   outline-offset: 6px;
 }
 
+  .roadmap-step:hover {
+    transform: none !important;
+  }
+}
+
+/* Activity Feed Container */
+#activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* spacing between items */
+
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Activity Item Card */
+.activity-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background-color: #ffffff; /* white theme */
+  border: 1px solid #e5e7eb; /* subtle border */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideFadeIn 0.5s forwards;
+}
+
+/* Slide & fade-in */
+@keyframes slideFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered animation */
+.activity-item:nth-child(1) { animation-delay: 0.1s; }
+.activity-item:nth-child(2) { animation-delay: 0.25s; }
+.activity-item:nth-child(3) { animation-delay: 0.4s; }
+
+/* Hover effect */
+.activity-item:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  border-color: #3b82f6;
+}
+
+/* Marker / Bullet */
+.activity-marker.bullet {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #3b82f6; /* blue accent */
+  margin-right: 14px;
+  flex-shrink: 0;
+  transition: all 0.35s ease;
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.3);
+}
+
+/* Marker pulse on hover */
+.activity-item:hover .bullet {
+  transform: scale(1.5);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.6), 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Commit Message */
+.commit-msg {
+  flex: 1;
+  margin-right: 16px;
+  color: #111827;
+  font-weight: 500;
+  transition: transform 0.25s ease;
+}
+
+/* User name accent */
+.user-name {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+[data-theme="dark"] {
+  --activity-bg: #1f2937;          /* dark card background */
+  --activity-border: #374151;      /* dark border */
+  --activity-shadow: rgba(0, 0, 0, 0.4); /* stronger shadow */
+  --activity-text: #f9fafb;        /* main text */
+  --activity-text-secondary: #9ca3af; /* secondary text/date */
+  --activity-accent: #3b82f6;      /* accent color */
+}
+
+/* Micro-bounce on hover */
+.activity-item:hover .commit-msg {
+  transform: translateY(-2px);
+}
+
+/* Commit date */
+.commit-date {
+  color: #6b7280;
+  font-size: 0.875rem;
+  transition: color 0.25s ease;
+}
+
+/* Highlight date on hover */
+.activity-item:hover .commit-date {
+  color: #3b82f6;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  #activity-list {
+    padding: 12px;
+  }
+  .activity-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .commit-date {
+    font-size: 0.8rem;
+  }
+}
+
+[data-theme="dark"] #activity-list .activity-item {
+  background-color: var(--activity-bg);
+  border: 1px solid var(--activity-border);
+  box-shadow: 0 4px 12px var(--activity-shadow);
+  color: var(--activity-text);
+}
+
+[data-theme="dark"] #activity-list .activity-item:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  border-color: var(--activity-accent);
+  background-color: #111827; /* slightly darker hover */
+}
+
+[data-theme="dark"] #activity-list .activity-marker.bullet {
+  background-color: var(--activity-accent);
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.5);
+}
+
+[data-theme="dark"] #activity-list .activity-item:hover .bullet {
+  transform: scale(1.5);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.8), 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+[data-theme="dark"] #activity-list .commit-msg {
+  color: var(--activity-text);
+}
+
+[data-theme="dark"] #activity-list .user-name {
+  color: var(--activity-accent);
+}
+
+[data-theme="dark"] #activity-list .commit-date {
+  color: var(--activity-text-secondary);
+}
+
+[data-theme="dark"] #activity-list .activity-item:hover .commit-date {
+  color: var(--activity-accent);
+}
